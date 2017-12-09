@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<title>City Details</title>
+</h:head>
+
+
+<h:body>
+	<h1>Full City Details</h1>
+	City Name: #{cityController.cty_code}
+	<br/>
+	Country Code:#{cityController.co_code}
+	<br/>
+	Region Code: #{cityController.reg_code}
+	<br/>
+	City Name: #{cityController.cty_name}
+	<br/>
+	City Population: #{cityController.population}
+	<br/>
+	By The Sea: #{cityController.isCoastal}
+	<br/>
+	Area (KM): #{cityController.areaKM}
+	<br/>
+	<h:link value="home" outcome="index"/>
+	<h:link value="cities" outcome="cities"/>
+</h:body>
+</html>

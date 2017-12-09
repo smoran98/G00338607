@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<f:metadata>
+	<f:event type="preRenderView"
+		listener="#{countryController.loadCountries()}" />
+</f:metadata>
+<h:outputStylesheet library="css" name="style.css"  />
+<h:head>
+	<title>List Countries</title>
+</h:head>
+<h:body>
+	<p>Show Countries here</p>
+	<br/>
+	<h:button value="Add Country" outcome="add_country"/>
+	<br/>
+
+<h:form>
+	<h:dataTable value="#{countryController.countries}" var="country" styleClass="table" 
+				headerClass="table-header"
+				rowClasses="table-odd-row,table-even-row">
+
+		<h:column>
+			<f:facet name="header">Country Code</f:facet>
+ 	  #{country.code}
+	</h:column>
+		<h:column>
+			<f:facet name="header">Country Name</f:facet>
+ 	  #{country.name}
+	</h:column>
+		<h:column>
+			<f:facet name="header">Country Details</f:facet>
+ 	  #{country.details}
+	</h:column>
+	
+	<h:column>
+	<f:facet name="header">Action</f:facet>
+	<h:link value ="Update" outcome ="update_Country"/><br/>
+	<h:commandLink value ="Delete" action = "#{countryController.deleteCountry(country)}"/>
+	</h:column>
+	</h:dataTable>
+	
+</h:form>
+	
+	
+	<h:link value="Homepage" outcome="index" />
+</h:body>
+</html>
